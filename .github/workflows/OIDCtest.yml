@@ -16,7 +16,7 @@ jobs:
               with:
                     role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
                     aws-region: ap-south-2
-                    role-session-name: arn:aws:iam::995310839878:role/githublink
+                    role-session-name: githublink
 
             - name: verify AWS credentials
               run: |
