@@ -99,7 +99,7 @@ jobs:
           run: |
                 aws sts get-caller-identity
         - name: deploy to EBS
-          uses: aws-actions/elastic-beanstalk-deploy@v1
+          uses: aws-actions/aws-elasticbeanstalk-deploy@v1
           with:
                 application-name: streamflix545
                 environment-name: streamflix545-dev
