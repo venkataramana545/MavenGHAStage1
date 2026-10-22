@@ -104,7 +104,7 @@ jobs:
                 application-name: streamflix545
                 environment-name: streamflix545-dev
                 version-label: streamflix-${{ github.run_number }}
-                region: ap-south-2
+                aws-region: ap-south-2
                 deployment-package-path: streamflix-deployment.zip
 
           
