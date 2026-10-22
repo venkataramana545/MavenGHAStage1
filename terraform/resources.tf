@@ -64,7 +64,7 @@ resource "aws_elastic_beanstalk_environment" "streamflix_env" {
   setting {
     namespace = "aws:elasticbeanstalk:environment"
     name      = "EnvironmentType"
-    value     = "single-instance"
+    value     = "SingleInstance"
   }
   setting {
     namespace = "aws:elasticbeanstalk:environment"
