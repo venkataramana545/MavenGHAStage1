@@ -68,7 +68,7 @@ resource "aws_elastic_beanstalk_environment" "streamflix_env" {
   }
   setting {
     namespace = "aws:elasticbeanstalk:environment"
-    name      = "service_role"
+    name      = "ServiceRole"
     value     = aws_iam_role.beanstalk_role.name
   }
   setting {
