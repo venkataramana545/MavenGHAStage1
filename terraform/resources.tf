@@ -8,7 +8,8 @@ data "aws_iam_policy_document" "ec2_assume_role" {
     actions = ["sts:AssumeRole"]
     principals {
       type        = "Service"
-      identifiers = ["elasticbeanstalk.amazonaws.com"]
+      identifiers = ["ec2.amazonaws.com"]
+      # identifiers = ["elasticbeanstalk.amazonaws.com"]
     }
   }
 }
@@ -33,7 +34,8 @@ data "aws_iam_policy_document" "beanstalk_assume_role" {
     actions = ["sts:AssumeRole"]
     principals {
       type        = "Service"
-      identifiers = ["ec2.amazonaws.com"]
+      identifiers = ["elasticbeanstalk.amazonaws.com"]
+      # identifiers = ["ec2.amazonaws.com"]
     }
   }
 }
@@ -44,7 +46,8 @@ resource "aws_iam_role" "beanstalk_role" {
 }
 resource "aws_iam_role_policy_attachment" "beanstalk_role_policy_attachment" {
   role       = aws_iam_role.beanstalk_role.name
-  policy_arn = "arn:aws:iam::aws:policy/AWSElasticBeanstalkEnhancedHealth"
+  # policy_arn = "arn:aws:iam::aws:policy/AWSElasticBeanstalkEnhancedHealth"
+  policy_arn = "arn:aws:iam::aws:policy/service-role/AWSElasticBeanstalkEnhancedHealth"
 }
 resource "aws_iam_role_policy_attachment" "beanstalk_role_policy_attachment2" {
   role       = aws_iam_role.beanstalk_role.name
@@ -68,7 +71,8 @@ resource "aws_elastic_beanstalk_environment" "streamflix_env" {
   }
   setting {
     namespace = "aws:elasticbeanstalk:environment"
-    name      = "service_role"
+    # name      = "service_role"
+    name = "ServiceRole"
     value     = aws_iam_role.beanstalk_role.name
   }
   setting {
