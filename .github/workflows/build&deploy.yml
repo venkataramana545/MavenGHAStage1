@@ -61,9 +61,12 @@ jobs:
         - name: terraform plan
           working-directory: terraform
           run: terraform plan
-        - name: terraform apply
+        # - name: terraform apply
+        #   working-directory: terraform
+        #   run: terraform apply -auto-approve
+        - name: terraform destroy
           working-directory: terraform
-          run: terraform apply -auto-approve
+          run: terraform destroy -auto-approve
         
     deploy:
       name: deploy to EBS
